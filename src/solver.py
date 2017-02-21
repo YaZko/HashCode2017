@@ -103,4 +103,3 @@ def super_solve(pb):
             x,y = w,h
     # print(w,h)
     return sol
->>>>>>> f3fc505b115bfc1bb916fa7f3c16945360c27b20
