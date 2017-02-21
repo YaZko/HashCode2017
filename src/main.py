@@ -12,8 +12,8 @@ h = pb.max_cell // 2
 
 s = solve(pb,w,h)
 print(pb)
-print(len(s))
-print(print_sliced_pizza(p, s))
+print("Score {}".format(scoring(s)))
+# print(print_sliced_pizza(p, s))
 
 
 

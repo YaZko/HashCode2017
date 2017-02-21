@@ -67,3 +67,9 @@ def solve(pb, w, h):
             r += 1
         c = 0
     return sol
+
+# def super_solve(pb):
+#     best = 0
+#     for w in range(pb.max_cell):
+#         h = 
+
