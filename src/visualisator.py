@@ -1,7 +1,10 @@
 from data import *
 
 def same_slice(r1,c1,r2,c2,slices):
-    return 1
+    for s in slices:
+        if (s.x1 <= r1 and r1 <= s.x2 and s.y1 <= c1 and c1 <= s.y2) and (s.x1 <= r2 and r2 <= s.x2 and s.y1 <= c2 and c2 <= s.y2):
+            return 1
+    return 0
 
 def print_sliced_pizza(pizza, slices):
     visu = "-"*(1+2*pizza.cols) 
