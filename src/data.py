@@ -28,6 +28,12 @@ class Problem():
         self.min_ingr = l
         self.max_cell = h
 
+    def __str__(self):
+        s = "We seek slices with\n* at least {} of each ingredient\n* at most {} ingredients\n".format(self.min_ingr,self.max_cell)
+        s = s + "The pizza is the following one:\n"
+        s = s + str(self.pizza)
+        return s
+
     # Tests whether a slice is valid.
     # Be careful, we will still need to enforce that none of them overlap
     def valid(self,s):
@@ -51,5 +57,3 @@ class Slice():
 
     def size(self):
         return self.width * self.height
-
-
