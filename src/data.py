@@ -6,7 +6,7 @@ class Pizza():
         self.cols = c
 
     def __str__(self):
-        s = ""
+        s = "-"*(2 * self.cols + 1) + "\n"
         for r in self.pizza:
             for i in r:
                 s = s + ("T " if i else "M ")
@@ -14,7 +14,7 @@ class Pizza():
         return s
 
     def __repr__(self):
-        s = ""
+        s = "-"*(2 * self.cols + 1) + "\n"
         for r in self.pizza:
             for i in r:
                 s = s + ("T " if i else "M ")

@@ -8,7 +8,7 @@ def parse(path):
     for i in range(len(pizza)):
         pizza[i] = [ tomata_mush(c) for c in pizza[i]]
     pizza = pizza
-    return Problem(pizza, params[0], params[1], params[2], params[3])
+    return Problem(pizza, int(params[0]), int(params[1]), int(params[2]), int(params[3]))
 
 def tomata_mush(c):
     if c == 'T':
