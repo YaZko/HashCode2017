@@ -4,7 +4,23 @@ class Pizza():
         self.pizza = t
         self.rows = r
         self.cols = c
- 
+
+    def __str__(self):
+        s = ""
+        for r in self.pizza:
+            for i in r:
+                s = s + ("T " if i else "M ")
+            s = s + "\n"
+        return s
+
+    def __repr__(self):
+        s = ""
+        for r in self.pizza:
+            for i in r:
+                s = s + ("T " if i else "M ")
+            s = s + "\n"
+        return s
+
 class Problem():
 
     def __init__(self,p,r,c,l,h):
@@ -12,18 +28,28 @@ class Problem():
         self.min_ingr = l
         self.max_cell = h
 
+    # Tests whether a slice is valid.
+    # Be careful, we will still need to enforce that none of them overlap
     def valid(self,s):
-        ts = size([i for i in r for r in self.pizza if i])
-        return s.size() <= self.max_cell 
+        ts = len([i for i in r for r in self.pizza if i])
+        tot = s.size()
+        not_too_much = tot <= self.max_cell
+        enough_T = ts >= self.min_ingr
+        enough_M = tot-ts >= self.min_ingr
+        return not_too_much and enough_T and enough_M
 
 class Slice():
 
-    def __init__(self,x,y,w,h):
-        self.x = x
-        self.y = y
-        self.width = w
-        self.height = h
+    def __init__(self,x1,y1,x2,y2):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.width = x2 - x1
+        self.height = y2 - y1
+        self.nb_tot = self.width * self.height
 
     def size(self):
         return self.width * self.height
+
 
