@@ -17,15 +17,13 @@ def tomata_mush(c):
     else:
         return False
 
-def printer(lslices):
-    print(lslices)
-    ofile = open("output", "w")
+def printer(lslices, output_file):
+    ofile = open(output_file, "w")
     ofile.write(str(len(lslices)))
     ofile.write("\n")
     for s in lslices:
         output = [ s.x1, s.y1, s.x2, s.y2 ]
         output = " ".join([str(i) for i in output])
-        print(output)
         ofile.write(output)
         ofile.write("\n")
     ofile.close()
