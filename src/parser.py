@@ -1,4 +1,5 @@
 from data import *
+import os
 
 def parse(path):
     content = open(path).readlines()
@@ -15,6 +16,20 @@ def tomata_mush(c):
         return True
     else:
         return False
+
+def printer(lslices):
+    print(lslices)
+    ofile = open("output", "w")
+    ofile.write(str(len(lslices)))
+    ofile.write("\n")
+    for s in lslices:
+        output = [ s.x1, s.y1, s.x2, s.y2 ]
+        output = " ".join([str(i) for i in output])
+        print(output)
+        ofile.write(output)
+        ofile.write("\n")
+    ofile.close()
+
 
 if __name__ == "__main__":
     print(parse("../inputs/small.in"))
