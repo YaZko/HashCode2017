@@ -43,17 +43,17 @@ def solve3(pb):
 def scoring(sol):
     return sum([s.size() for s in sol])
 
-def solve(pb, w, h):
+def solve5(pb, w, h):
     sol = []
     p = pb.pizza
     w = min(p.cols,w)
     h = min(p.rows,h)
     r,c = 0,0
     while r+h <= p.rows:
-        print("currently, r = {} and c = {}".format(r,c))
+        # print("currently, r = {} and c = {}".format(r,c))
         b = False
         while c+w <= p.cols:
-            print("Inner, r = {} and c = {}".format(r,c))
+            # print("Inner, r = {} and c = {}".format(r,c))
             s = Slice(r,c,r+h-1,c+w-1)
             if pb.valid(s):
                 b = True
@@ -87,5 +87,20 @@ def solve4(pb):
                     c += 1
             sol = sol + (solve4(Problem(Pizza(p.pizza[:-h],p.rows-h,p.cols),pb.l,pb.h)))
             sols.append(sol)
-        
 
+
+def super_solve(pb):
+    best,sol = 0,[]
+    x,y = 0,0
+    for w in range(1,pb.max_cell+1):
+        h = pb.max_cell//w
+        print("Solving with w = {} and h = {}".format(w,h))
+        s = solve5(pb,w,h)
+        print(scoring(s))
+        if scoring(s) > best:
+            best = scoring(s)
+            sol = s
+            x,y = w,h
+    # print(w,h)
+    return sol
+>>>>>>> f3fc505b115bfc1bb916fa7f3c16945360c27b20
