@@ -1,5 +1,4 @@
-
-from main import *
+from data import *
 
 def parse(path):
     content = open(path).readlines()
@@ -8,7 +7,7 @@ def parse(path):
     pizza = [ i.strip() for i in pizza]
     for i in range(len(pizza)):
         pizza[i] = [ tomata_mush(c) for c in pizza[i]]
-    pizza = Pizza(pizza)
+    pizza = pizza
     return Problem(pizza, params[0], params[1], params[2], params[3])
 
 def tomata_mush(c):
@@ -19,5 +18,4 @@ def tomata_mush(c):
 
 if __name__ == "__main__":
     print(parse("../inputs/small.in"))
-
 
