@@ -37,13 +37,20 @@ class Problem():
     # Tests whether a slice is valid.
     # Be careful, we will still need to enforce that none of them overlap
     def valid(self,s):
-        ts = len([i for i in r for r in self.pizza if i])
+        sub_pizz = [[i for i in r[s.y1:s.y2+1]] for r in self.pizza.pizza[s.x1:s.x2+1]]
+        # print(sub_pizz)
+        ts = len([i for r in sub_pizz for i in r if i])
+        # print(ts)
         tot = s.size()
+        # print(tot)
         not_too_much = tot <= self.max_cell
+        # print(not_too_much)
         enough_T = ts >= self.min_ingr
-        enough_M = tot-ts >= self.min_ingr
+        # print(enough_T)
+        enough_M = (tot-ts) >= self.min_ingr
+        # print(enough_M)
         return not_too_much and enough_T and enough_M
-
+ 
 class Slice():
 
     def __init__(self,x1,y1,x2,y2):
@@ -51,8 +58,8 @@ class Slice():
         self.y1 = y1
         self.x2 = x2
         self.y2 = y2
-        self.width = x2 - x1
-        self.height = y2 - y1
+        self.width = x2 - x1 + 1
+        self.height = y2 - y1 + 1
         self.nb_tot = self.width * self.height
 
     def size(self):
