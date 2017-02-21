@@ -1,16 +1,20 @@
 class Pizza():
 
-    def __init__(self,t):
+    def __init__(self,t,r,c):
         self.pizza = t
-
+        self.rows = r
+        self.cols = c
+ 
 class Problem():
 
     def __init__(self,p,r,c,l,h):
-        self.pizza = p
-        self.rows = r
-        self.cols = c
+        self.pizza = Pizza(p,r,c)
         self.min_ingr = l
         self.max_cell = h
+
+    def valid(self,s):
+        ts = size([i for i in r for r in self.pizza if i])
+        return s.size() <= self.max_cell 
 
 class Slice():
 
@@ -18,4 +22,9 @@ class Slice():
         self.x = x
         self.y = y
         self.width = w
-        self.heigth = h
+        self.height = h
+
+    def size(self):
+        return self.width * self.height
+
+
