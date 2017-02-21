@@ -9,9 +9,6 @@ p = pb.pizza
     # print(s)
 
 
-
-
-
 pb = parse("../inputs/small.in")
 print(pb)
 s = Slice(0,0,0,4)
