@@ -50,7 +50,7 @@ class Problem():
         enough_M = (tot-ts) >= self.min_ingr
         # print(enough_M)
         return not_too_much and enough_T and enough_M
-
+ 
 class Slice():
 
     def __init__(self,x1,y1,x2,y2):
