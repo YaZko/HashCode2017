@@ -52,7 +52,7 @@ def print_sliced_pizza(pizza, slices):
         visu = visu + "M"
     visu = visu + "|\n"
     visu = visu + "-"*(1+2*pizza.cols)
-        
+
 
     return visu
 

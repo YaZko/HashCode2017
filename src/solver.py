@@ -40,13 +40,30 @@ def solve3(pb):
                 i += 1
     return sol
 
-# def solve(pb, w, h):
-#     sol = []
-#     p = pb.pizza
-#     r,c = 0,0
-#     while r+w < p.cols:
-#         while c+h < p.rows:
-#             s = Slice(r,c,r+w,c+h)
-#             if pb.valid(s):
-#                 sol.append(s)
-#                 c += w + 1
+def scoring(sol):
+    return sum([s.size() for s in sol])
+
+def solve(pb, w, h):
+    sol = []
+    p = pb.pizza
+    w = min(p.cols,w)
+    h = min(p.rows,h)
+    r,c = 0,0
+    while r+h <= p.rows:
+        print("currently, r = {} and c = {}".format(r,c))
+        b = False
+        while c+w <= p.cols:
+            print("Inner, r = {} and c = {}".format(r,c))
+            s = Slice(r,c,r+h-1,c+w-1)
+            if pb.valid(s):
+                b = True
+                sol.append(s)
+                c += w 
+            else:
+                c += 1
+        if b:
+            r += h
+        else:
+            r += 1
+        c = 0
+    return sol
