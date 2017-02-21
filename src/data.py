@@ -9,7 +9,12 @@ class Pizza():
         s = "-"*(2 * self.cols + 1) + "\n"
         for r in self.pizza:
             for i in r:
-                s = s + ("T " if i else "M ")
+                if i is None:
+                    s = s + "X "
+                elif i:
+                    s = s + "T "
+                else:
+                    s = s + "M "
             s = s + "\n"
         return s
 
@@ -17,7 +22,13 @@ class Pizza():
         s = "-"*(2 * self.cols + 1) + "\n"
         for r in self.pizza:
             for i in r:
-                s = s + ("T " if i else "M ")
+                if i is None:
+                    s = s + "X "
+                elif i:
+                    s = s + "T "
+                else:
+                    s = s + "M "
+
             s = s + "\n"
         return s
 
@@ -29,9 +40,9 @@ class Problem():
         self.max_cell = h
 
     def __str__(self):
-        s = "We seek slices with\n* at least {} of each ingredient\n* at most {} ingredients\n".format(self.min_ingr,self.max_cell)
-        s = s + "The pizza is the following one:\n"
-        s = s + str(self.pizza)
+        #s = "We seek slices with\n* at least {} of each ingredient\n* at most {} ingredients\n".format(self.min_ingr,self.max_cell)
+        #s = s + "The pizza is the following one:\n"
+        s = str(self.pizza)
         return s
 
     # Tests whether a slice is valid.
