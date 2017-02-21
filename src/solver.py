@@ -67,3 +67,25 @@ def solve(pb, w, h):
             r += 1
         c = 0
     return sol
+
+def solve4(pb):
+    sols = []
+    p = pb.pzza
+    if p.rows == 0:
+        return []
+    else:
+        for h in range(1,p.rows):
+            sol = []
+            w = pb.max_cell // h
+            r,c = p.rows-h,0
+            while c+w <= p.cols:
+                s = Slice(r,c,r+h-1,c+w-1)
+                if pb.valid(s):
+                    sol.append(s)
+                    c += w 
+                else:
+                    c += 1
+            sol = sol + (solve4(Problem(Pizza(p.pizza[:-h],p.rows-h,p.cols),pb.l,pb.h)))
+            sols.append(sol)
+        
+
