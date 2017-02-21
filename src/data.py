@@ -57,3 +57,8 @@ class Slice():
 
     def size(self):
         return self.width * self.height
+
+    def __repr__(self):
+        return "top-left: (" + self.x1 + ", " + \
+                self.y1 + ") --- bottom-right: ("  +  \
+                self.x2 + ", " + self.y2
