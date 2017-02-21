@@ -50,10 +50,10 @@ def solve(pb, w, h):
     h = min(p.rows,h)
     r,c = 0,0
     while r+h <= p.rows:
-        print("currently, r = {} and c = {}".format(r,c))
+        # print("currently, r = {} and c = {}".format(r,c))
         b = False
         while c+w <= p.cols:
-            print("Inner, r = {} and c = {}".format(r,c))
+            # print("Inner, r = {} and c = {}".format(r,c))
             s = Slice(r,c,r+h-1,c+w-1)
             if pb.valid(s):
                 b = True
@@ -68,8 +68,14 @@ def solve(pb, w, h):
         c = 0
     return sol
 
-# def super_solve(pb):
-#     best = 0
-#     for w in range(pb.max_cell):
-#         h = 
-
+def super_solve(pb):
+    best,sol = 0,[]
+    for w in range(1,pb.max_cell+1):
+        h = pb.max_cell//w
+        # print("Solving with w = {} and h = {}\n".format(w,h))
+        s = solve(pb,w,h)
+        # print(scoring(s))
+        if scoring(s) > best:
+            best = scoring(s)
+            sol = s
+    return sol
