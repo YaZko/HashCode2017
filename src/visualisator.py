@@ -42,7 +42,7 @@ def print_sliced_pizza(pizza, slices):
             visu = visu + "T"
         else:
             visu = visu + "M"
-        if same_slice(pizza.rows,id_c,pizza.rows,id_c+1,slices):
+        if same_slice(pizza.rows-1,id_c,pizza.rows-1,id_c+1,slices):
             visu = visu + " "
         else:
             visu = visu + "|"
