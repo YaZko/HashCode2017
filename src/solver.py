@@ -70,12 +70,15 @@ def solve(pb, w, h):
 
 def super_solve(pb):
     best,sol = 0,[]
+    x,y = 0,0
     for w in range(1,pb.max_cell+1):
         h = pb.max_cell//w
-        # print("Solving with w = {} and h = {}\n".format(w,h))
+        print("Solving with w = {} and h = {}".format(w,h))
         s = solve(pb,w,h)
-        # print(scoring(s))
+        print(scoring(s))
         if scoring(s) > best:
             best = scoring(s)
             sol = s
+            x,y = w,h
+    # print(w,h)
     return sol

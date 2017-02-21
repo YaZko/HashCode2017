@@ -4,7 +4,7 @@ from solver import *
 from visualisator import *
 import os
 
-pb = parse("../inputs/small.in")
+pb = parse("../inputs/big.in")
 p = pb.pizza
 
 # w = 2
@@ -12,9 +12,9 @@ p = pb.pizza
 # s = solve(pb,w,h)
 
 s = super_solve(pb)
-print(print_sliced_pizza(p, s))
+# print(scoring(solve(pb,1,14)))
 
-
+# print(print_sliced_pizza(p, s))
 
 # os.makedirs("output", exist_ok=True)
 # pb1 = parse("../inputs/small.in")
@@ -33,4 +33,3 @@ print(print_sliced_pizza(p, s))
 # p = parse("../inputs/small.in")
 # p = parse("../inputs/small.in")
 # p = parse("../inputs/small.in")
-
