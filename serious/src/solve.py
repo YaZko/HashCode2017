@@ -29,6 +29,5 @@ def get_req(pb):
 
     return sol
 
-pb = parse("../inputs/example.in")
-print(score(pb,get_req(pb)))
-# print((parse("../inputs/example.in")))
+# pb = parse("../inputs/example.in")
+# sol = get_req(pb)
