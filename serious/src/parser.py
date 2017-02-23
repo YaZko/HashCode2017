@@ -32,7 +32,7 @@ def parse(path):
     reqs = []
     for i in range(nb_reqs):
         req = split_int(content) 
-        reqs.append(Request(req[0], req[1], req[2]))
+        reqs.append(Request(req[0], ends[i], req[2]))
 
     servs = [ Server(i) for i in range(nb_caches)]
     assert(nb_caches == len(servs))
@@ -54,6 +54,17 @@ def split_int(content):
     params = content.readline().split()
     return [ int(i) for i in params ]
 
+
+def printer(dic_servers, output_file):
+    ofile = open(output_file, "w")
+    ofile.write(str(len(dic_servers.keys())))
+    ofile.write("\n")
+    for k, v in dic_servers.items():
+        output = list(k) + v
+        output = " ".join([str(i) for i in output])
+        ofile.write(output)
+        ofile.write("\n")
+    ofile.close()
 
 if __name__ == "__main__":
     print(parse("../inputs/me_at_the_zoo.in"))
