@@ -55,13 +55,13 @@ def split_int(content):
     return [ int(i) for i in params ]
 
 
-def printer(dic_servers, output_file):
+def printer(servers, output_file):
     ofile = open(output_file, "w")
-    ofile.write(str(len(dic_servers.keys())))
+    ofile.write(str(len(servers)))
     ofile.write("\n")
-    for k, v in dic_servers.items():
-        output = list(k) + v
-        output = " ".join([str(i) for i in output])
+    for k,vids in enumerate(servers):
+        output = str(k) + " "
+        output += " ".join([str(i) for i in vids])
         ofile.write(output)
         ofile.write("\n")
     ofile.close()
