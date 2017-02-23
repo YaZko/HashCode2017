@@ -42,9 +42,9 @@ def parse(path):
 
     return Problem(capa, nb_caches, servs, \
             nb_ends, ends, \
-            nb_vids, vids, 
+            nb_vids, vids,
             nb_reqs, reqs)
-    
+
     # print(params)
     # print(vids_sz)
     # print(ends)

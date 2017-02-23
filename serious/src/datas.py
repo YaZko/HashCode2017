@@ -36,6 +36,8 @@ class Server():
         self.videos = []
         self.load = 0
 
+    # def __repr__(self
+
 class EndPoint():
 
     def __init__(self,t,id,d):
@@ -44,5 +46,7 @@ class EndPoint():
         self.id      = id
         self.servers = d  # A dictionnary mapping connected servers to their latency
 
+    def __repr__(self):
+        return "Endpoint {} has latency {}\nIt is connected to servers : {}".format(self.id,self.latency,self.servers)
 
 # A solution is a dictionnary mapping servers' id to list of videos.
