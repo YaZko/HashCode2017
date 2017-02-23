@@ -34,7 +34,14 @@ def parse(path):
         req = split_int(content) 
         reqs.append(Request(vids[req[0]], ends[req[1]], req[2]))
 
-    servs = [ Server(i) for i in range(nb_caches)]
+    servs = []
+    for i in range(nb_caches):
+        serv_ends = []
+        for end in ends:
+            if i in end.servers.keys:
+                serv_ends.append(end)
+        servs.append(Server(i, serv_ends))
+
     assert(nb_caches == len(servs))
     assert(nb_ends == len(ends))
     assert(nb_vids == len(vids))

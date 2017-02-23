@@ -31,10 +31,11 @@ class Video():
 
 class Server():
 
-    def __init__(self,id):
+    def __init__(self,id, endpoints):
         self.id = id
         self.videos = []
         self.load = 0
+        self.endpoints = endpoints
 
     # def __repr__(self
 
