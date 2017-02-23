@@ -2,6 +2,7 @@ from datas import *
 
 def score(problem,solution):
     timeSaved,total = 0,0
+    print("loop size {}".format(len(problem.requests)))
     for request in problem.requests:
     #for each request, we calculat the time saved
         video = request.vid                                                                   # the video to stream
