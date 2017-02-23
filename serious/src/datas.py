@@ -1,9 +1,10 @@
 class Problem():
 
-    def __init__(self,c,ns,ne,e,nv,v,nr,r):
+    def __init__(self,c,ns,s,ne,e,nv,v,nr,r):
 
         self.capacity = c     # Capacity of each server
         self.nb_servers = ns  # Number of cache servers
+        self.servers = s      # Mapping from server's id to servers
 
         self.nb_endpoints = ne  # Number of endpoints
         self.endpoints = e      # List of endpoints
@@ -28,6 +29,13 @@ class Video():
         self.id = id      # Video's id
         self.servers = [] # List of servers in which one the video is cached
 
+class Server():
+
+    def __init__(self,id):
+        self.id = id
+        self.videos = []
+        self.load = 0
+
 class EndPoint():
 
     def __init__(self,t,id,d):
@@ -37,3 +45,4 @@ class EndPoint():
         self.servers = d  # A dictionnary mapping connected servers to their latency
 
 
+# A solution is a dictionnary mapping servers' id to list of videos.
