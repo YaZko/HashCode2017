@@ -32,7 +32,7 @@ def parse(path):
     reqs = []
     for i in range(nb_reqs):
         req = split_int(content) 
-        reqs.append(Request(req[0], ends[i], req[2]))
+        reqs.append(Request(req[0], ends[req[1]], req[2]))
 
     servs = [ Server(i) for i in range(nb_caches)]
     assert(nb_caches == len(servs))
