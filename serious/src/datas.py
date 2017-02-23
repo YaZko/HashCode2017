@@ -4,7 +4,7 @@ class Problem():
 
         self.capacity = c     # Capacity of each server
         self.nb_servers = ns  # Number of cache servers
-        self.servers = s      # Mapping from server's id to servers
+        self.servers = s      # List of servers
 
         self.nb_endpoints = ne  # Number of endpoints
         self.endpoints = e      # List of endpoints
