@@ -23,8 +23,9 @@ class Request():
 
 class Video():
 
-    def __init__(self,s):
+    def __init__(self,s,id):
         self.size = s     # Size of the video
+        self.id = id      # Video's id
         self.servers = [] # List of servers in which one the video is cached
 
 class EndPoint():
