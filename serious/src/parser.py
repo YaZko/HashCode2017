@@ -31,7 +31,7 @@ def parse(path):
 
     reqs = []
     for i in range(nb_reqs):
-        req = split_int(content) 
+        req = split_int(content)
         reqs.append(Request(req[0], ends[i], req[2]))
 
     servs = [ Server(i) for i in range(nb_caches)]
@@ -42,9 +42,9 @@ def parse(path):
 
     return Problem(capa, nb_caches, servs, \
             nb_ends, ends, \
-            nb_vids, vids, 
+            nb_vids, vids,
             nb_reqs, reqs)
-    
+
     # print(params)
     # print(vids_sz)
     # print(ends)
