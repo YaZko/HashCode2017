@@ -38,7 +38,7 @@ def parse(path):
     for i in range(nb_caches):
         serv_ends = []
         for end in ends:
-            if i in end.servers.keys:
+            if i in end.servers.keys():
                 serv_ends.append(end)
         servs.append(Server(i, serv_ends))
 
